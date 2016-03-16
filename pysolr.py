@@ -737,6 +737,11 @@ class Solr(object):
         doc_elem = ET.Element('doc')
 
         for key, value in doc.items():
+            if key == '_childDocuments_':
+                for obj in value:
+                    el = self._build_doc(obj, boost, fieldUpdates)
+                    doc_elem.append(el)
+
             if key == 'boost':
                 doc_elem.set('boost', force_unicode(value))
                 continue
