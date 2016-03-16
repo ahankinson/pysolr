@@ -787,6 +787,8 @@ class Solr(object):
                 for obj in value:
                     el = self._build_doc(obj, boost, fieldUpdates)
                     doc_elem.append(el)
+                continue
+
             if key == 'boost':
                 doc_elem.set('boost', force_unicode(value))
                 continue
