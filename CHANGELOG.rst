@@ -4,8 +4,27 @@ Changelog
 %%version%% (unreleased)
 ------------------------
 
+- Update project URL. [Chris Adams]
+
+v3.5.0 (2016-05-24)
+-------------------
+
 New
 ~~~
+
+- Expose the full Solr response in `Results` [Chris Adams]
+
+  This makes life easier for anyone using custom extensions by
+  removing the need to create a `Results` subclass just to get
+  access to an extra dictionary key.
+
+- More flexible control of request handlers. [nuarhu]
+
+  This allows configuring the default search handler and overriding it for every query method
+
+  Thanks to @nuarhu for the patch
+
+- Start maintaining a changelog from gitchangelog. [Chris Adams]
 
 - Overwrite flag for Solr.add (closes #182) [Chris Adams]
 
@@ -20,6 +39,45 @@ New
 
 Other
 ~~~~~
+
+- V3.5.0. [Chris Adams]
+
+- Merge pull request #192 from dhruvpathak/optimize_commit_flag. [Chris
+  Adams]
+
+  chg: `optimize()` also accepts `commit` flag
+
+- Included commit flag in optimize() to let optimize call run with or
+  without commit. [dhruv.pathak]
+
+- Merge pull request #188 from TigorC/master. [Chris Adams]
+
+  Removed py26 from tox.ini
+
+- Removed py26 from tox.ini. [Igor Tokarev]
+
+- Tests: avoid timeout-based CI failures. [Chris Adams]
+
+  These caused sporadic CI build failures and weren’t
+  otherwise testing actual functionality since we don’t have a
+  test which does something like SIGSTOP the test Solr server
+  long enough to confirm a timeout.
+
+  We’ll confirm that the timeout is passed through but
+  otherwise use the defaults.
+
+- Update Travis CI badge in the README. [Chris Adams]
+
+- Merge pull request #184 from atuljangra/master. [Chris Adams]
+
+  Correct documentation for `_update`
+
+  Thanks to @atuljangra for the patch!
+
+- Merge branch 'master' of https://github.com/atuljangra/pysolr.
+  [atuljangra]
+
+- Misleading comments. [atuljangra]
 
 - Travis: use build matrix for regular and SolrCloud tests. [Chris
   Adams]
